@@ -9,18 +9,26 @@
     <div id="log"></div>
 
     <script>
-        window.addEventListener('devicemotion', function (event) {
-            var x = event.acceleration.x;
-            var y = event.acceleration.y;
-            var z = event.acceleration.z;
+        try {
+            window.addEventListener('devicemotion', function (event) {
+                try {
+                    var x = event.acceleration.x;
+                    var y = event.acceleration.y;
+                    var z = event.acceleration.z;
 
-            var ralpha = event.rotationRate.alpha;
-            var rbeta = event.rotationRate.beta;
-            var rgamma = event.rotationRate.gamma;
+                    var ralpha = event.rotationRate.alpha;
+                    var rbeta = event.rotationRate.beta;
+                    var rgamma = event.rotationRate.gamma;
 
-            var interval = event.interval;
-            document.getElementById("log").innerHTML = (x + "-" + y + "-" + z + "-" + ralpha + "-" + rbeta + "-" + rgamma);
-        });
+                    var interval = event.interval;
+                    document.getElementById("log").innerHTML = (x + "-" + y + "-" + z + "-" + ralpha + "-" + rbeta + "-" + rgamma);
+                } catch (e) {
+                    alert(e);
+                }
+            });
+        } catch (e) {
+            alert(e);
+        }
     </script>
 </body>
 
