@@ -2,15 +2,15 @@
 
 <head>
     <title>Device Orientation</title>
-
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="log"></div>
 
     <script>
-        try {
-            window.addEventListener('devicemotion', function (event) {
+        $(document).ready(function () {
+            $(window).on("devicemotion", function (event) {
                 try {
                     var x = event.acceleration.x;
                     var y = event.acceleration.y;
@@ -21,14 +21,12 @@
                     var rgamma = event.rotationRate.gamma;
 
                     var interval = event.interval;
-                    document.getElementById("log").innerHTML = (x + "-" + y + "-" + z + "-" + ralpha + "-" + rbeta + "-" + rgamma);
+                    $("#log").html(x + "-" + y + "-" + z + "-" + ralpha + "-" + rbeta + "-" + rgamma);
                 } catch (e) {
                     alert(e);
                 }
-            });
-        } catch (e) {
-            alert(e);
-        }
+            })
+        })
     </script>
 </body>
 
