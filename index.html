@@ -2,6 +2,12 @@
 
 <head>
     <title>Device Orientation</title>
+
+</head>
+
+<body>
+    <div id="log"></div>
+
     <script>
         window.addEventListener('devicemotion', function (event) {
             var x = event.acceleration.x;
@@ -13,12 +19,9 @@
             var rgamma = event.rotationRate.gamma;
 
             var interval = event.interval;
-            console.log(x, y, z, ralpha, rbeta, rgamma)
+            document.getElementById("log").innerHTML(x, y, z, ralpha, rbeta, rgamma)
         });
     </script>
-</head>
-
-<body>
 </body>
 
 </html>
