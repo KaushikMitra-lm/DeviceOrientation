@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>Device Orientation</title>
+    <script>
+        window.addEventListener('devicemotion', function (event) {
+            var x = event.acceleration.x;
+            var y = event.acceleration.y;
+            var z = event.acceleration.z;
+
+            var ralpha = event.rotationRate.alpha;
+            var rbeta = event.rotationRate.beta;
+            var rgamma = event.rotationRate.gamma;
+
+            var interval = event.interval;
+            console.log(x, y, z, ralpha, rbeta, rgamma)
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
